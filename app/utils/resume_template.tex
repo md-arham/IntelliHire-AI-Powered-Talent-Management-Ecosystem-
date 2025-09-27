@@ -1,0 +1,138 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{parskip}
+\pagestyle{empty}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}[runin]{\bfseries}{}{0em}{}[ -- ]
+
+% Resume commands
+\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\resumeSubheading}[4]{
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}}
+
+% Auto replacement for bad characters
+\DeclareUnicodeCharacter{FFFD}{--}
+
+\begin{document}
+
+((* if name or email or phone or linkedin or github *))
+\begin{center}
+  ((* if name *)){\Huge \textbf{((( name )))}}\\ ((* endif *))
+  ((* if email *))\href{mailto:((( email )))}{((( email )))} \\ ((* endif *))
+  ((* if phone *))((( phone ))) ((* endif *))
+  ((* if linkedin *))\quad | \quad \href{https://((( linkedin )))}{((( linkedin )))} ((* endif *))
+  ((* if github *))\quad | \quad \href{https://((( github )))}{((( github )))} ((* endif *))
+\end{center}
+((* endif *))
+
+((* if education *))
+\section*{Education}
+((* for edu in education *))
+\resumeSubheading
+  { ((( edu.degree ))) }
+  { ((( edu.dates ))) }
+  { ((( edu.institution ))) }
+  { }
+((* if edu.details *))
+\begin{itemize}[leftmargin=0.15in]
+  ((* for line in edu.details *))
+  \resumeItem{ ((( line ))) }
+  ((* endfor *))
+\end{itemize}
+((* endif *))
+((* endfor *))
+((* endif *))
+
+((* if experience *))
+\section*{Experience}
+((* for exp in experience *))
+\resumeSubheading
+  { ((( exp.role ))) }
+  { ((( exp.dates ))) }
+  { ((( exp.company ))) }
+  { }
+((* if exp.details *))
+\begin{itemize}[leftmargin=0.15in]
+  ((* for line in exp.details *))
+  \resumeItem{ ((( line ))) }
+  ((* endfor *))
+\end{itemize}
+((* endif *))
+((* endfor *))
+((* endif *))
+
+((* if projects *))
+\section*{Projects}
+((* for project in projects *))
+\resumeSubheading
+  { ((( project.title ))) }
+  { ((( project.dates ))) }
+  { }
+  { }
+((* if project.details *))
+\begin{itemize}[leftmargin=0.15in]
+  ((* for line in project.details *))
+  \resumeItem{ ((( line ))) }
+  ((* endfor *))
+\end{itemize}
+((* endif *))
+((* endfor *))
+((* endif *))
+
+((* if skills *))
+\section*{Skills}
+\begin{tabular}{@{}l p{12cm}}
+\textbf{Programming Languages:} & ((( skills.programming_languages ))) \\
+\textbf{Tools \& Technologies:} & ((( skills.tools_technologies ))) \\
+\textbf{Soft Skills:} & ((( skills.soft_skills ))) \\
+\textbf{Relevant Course work:} & ((( skills.relevant_courses ))) \\
+\end{tabular}
+((* endif *))
+
+
+
+((* if achievements *))
+\section*{Achievements}
+\begin{itemize}[leftmargin=0.15in]
+  ((* for ach in achievements *))
+  \resumeItem{ ((( ach ))) }
+  ((* endfor *))
+\end{itemize}
+((* endif *))
+
+((* if extra_fields *))
+((* for section, items in extra_fields.items() *))
+((* if items *))
+\section*{((( section.replace("_", " ").title() )))}
+\begin{itemize}[leftmargin=0.15in]
+  ((* for item in items *))
+    ((* if item is mapping *))
+      \item[] \resumeSubheading
+        {((( item.position | default("") )))}
+        {((( item.dates | default("") )))}
+        { }
+        { }
+      ((* if item.description *))
+        \resumeItem{((( item.description )))}
+      ((* endif *))
+    ((* else *))
+      \resumeItem{((( item )))}
+    ((* endif *))
+  ((* endfor *))
+\end{itemize}
+((* endif *))
+((* endfor *))
+((* endif *))
+
+\end{document}

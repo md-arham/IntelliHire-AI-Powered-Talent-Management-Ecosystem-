@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {{ resume.personalInfo.firstName }} {{ resume.personalInfo.lastName }} -
+      Resume
+    </title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body class="serif">
+    <!-- Header -->
+    <div class="header bg-dark text-white text-center p-4">
+      <h1 class="text-xxl">
+        {{ resume.personalInfo.firstName }} {{ resume.personalInfo.lastName }}
+      </h1>
+      {% if resume.personalInfo.title %}
+      <h2 class="text-xl mt-1">{{ resume.personalInfo.title }}</h2>
+      {% endif %}
+    </div>
+
+    <!-- Contact Information -->
+    <div class="bg-light p-3 text-center small">
+      {% for label, value in { 'Email': resume.personalInfo.email, 'Phone':
+      resume.personalInfo.phone, 'Location': resume.personalInfo.location,
+      'Website': resume.personalInfo.website, 'LinkedIn':
+      resume.personalInfo.linkedin, 'GitHub': resume.personalInfo.github
+      }.items() %} {% if value %}
+      <span class="px-2"><strong>{{ label }}:</strong> {{ value }}</span>
+      {% endif %} {% endfor %}
+    </div>
+
+    <div class="p-4">
+      <!-- Summary -->
+      {% if resume.personalInfo.summary %}
+      <section class="mb-4">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="text-justify">{{ resume.personalInfo.summary }}</p>
+      </section>
+      {% endif %}
+
+      <!-- Work Experience -->
+      {% if resume.workExperience %}
+      <section class="mb-4">
+        <h2 class="section-title">Professional Experience</h2>
+        {% for job in resume.workExperience %}
+        <div class="job mb-3">
+          <div class="job-header">
+            <strong>{{ job.company }}</strong> | {{ job.location or '' }}<br />
+            <small
+              >{{ job.startDate }} - {{ 'Present' if job.current else
+              job.endDate }}</small
+            >
+          </div>
+          <div class="job-details">
+            <strong>{{ job.position }}</strong>
+            <p>{{ job.description }}</p>
+            {% if job.achievements %}
+            <ul>
+              {% for achievement in job.achievements if achievement.strip() %}
+              <li>{{ achievement }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      <!-- Education -->
+      {% if resume.education %}
+      <section class="mb-4">
+        <h2 class="section-title">Education</h2>
+        {% for edu in resume.education %}
+        <div class="edu mb-3">
+          <strong>{{ edu.institution }}</strong> | {{ edu.location or '' }}<br />
+          <small
+            >{{ edu.startDate }} - {{ 'Present' if edu.current else edu.endDate
+            }}</small
+          ><br />
+          <strong>{{ edu.degree }} in {{ edu.field }}</strong><br />
+          {% if edu.gpa %}<small>GPA: {{ edu.gpa }}</small><br />{% endif %} {%
+          if edu.description %}
+          <p>{{ edu.description }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      <!-- Projects -->
+      {% if resume.projects %}
+      <section class="mb-4">
+        <h2 class="section-title">Projects</h2>
+        {% for project in resume.projects %}
+        <div class="project mb-3">
+          <strong>{{ project.title }}</strong><br />
+          <small
+            >{{ project.startDate }} - {{ 'Present' if project.current else
+            project.endDate }}</small
+          ><br />
+          {% if project.link %}
+          <a href="{{ project.link }}">{{ project.link }}</a><br />
+          {% endif %}
+          <p>{{ project.description }}</p>
+          {% if project.technologies %}
+          <small
+            ><strong>Technologies:</strong> {{ project.technologies | join(', ')
+            }}</small
+          >
+          {% endif %}
+        </div>
+        {% endfor %}
+      </section>
+      {% endif %}
+
+      <!-- Skills, Languages, Certifications -->
+      <div class="grid">
+        {% if resume.skills %}
+        <div>
+          <h2 class="section-title">Skills</h2>
+          <ul>
+            {% for skill in resume.skills %}
+            <li>
+              {{ skill.name }} (<span class="small">
+                {{ ['Beginner', 'Basic', 'Intermediate', 'Advanced',
+                'Expert'][skill.level - 1] }} </span
+              >)
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %} {% if resume.languages %}
+        <div>
+          <h2 class="section-title">Languages</h2>
+          <ul>
+            {% for lang in resume.languages %}
+            <li>{{ lang.name }} ({{ lang.proficiency }})</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %} {% if resume.certifications %}
+        <div>
+          <h2 class="section-title">Certifications</h2>
+          <ul>
+            {% for cert in resume.certifications %}
+            <li>
+              <strong>{{ cert.name }}</strong><br />
+              <small>{{ cert.organization }}</small><br />
+              <small>Issued: {{ cert.date }}</small>
+              {% if cert.expiration %}
+              <br /><small>Expires: {{ cert.expiration }}</small>
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

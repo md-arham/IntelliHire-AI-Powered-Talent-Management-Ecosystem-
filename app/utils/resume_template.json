@@ -1,0 +1,39 @@
+{
+    "name": "",
+    "phone": "",
+    "email": "",
+    "linkedin": "",
+    "github": "",
+    "education": [
+      {
+        "degree": "",
+        "institution": "",
+        "dates": "",
+        "details": [""]
+      }
+    ],
+    "experience": [
+      {
+        "role": "",
+        "company": "",
+        "dates": "",
+        "details": [""]
+      }
+    ],
+    "projects": [
+      {
+        "title": "",
+        "dates": "",
+        "details": [""]
+      }
+    ],
+    "skills": [""],
+    "achievements": [""],
+    "extra_fields": {
+      "certifications": [""],
+      "languages": [""]
+    },
+    "ats_score" :"",
+    "ai_feedback" : "" 
+
+  }

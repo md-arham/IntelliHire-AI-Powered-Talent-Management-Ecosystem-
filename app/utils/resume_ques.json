@@ -1,0 +1,91 @@
+[
+    {
+      "question": "name",
+      "description": "What is the full name of the candidate?"
+    },
+    {
+      "question": "phone",
+      "description": "What is the candidate's phone number?"
+    },
+    {
+      "question": "email",
+      "description": "What is the candidate's email address?"
+    },
+    {
+      "question": "linkedin",
+      "description": "What is the candidate's LinkedIn profile URL, if mentioned."
+    },
+    {
+      "question": "github",
+      "description": "What is the candidate's GitHub profile URL, if mentioned."
+    },
+    {
+      "question": "degree",
+      "description": "What degree did the candidate complete?"
+    },
+    {
+      "question": "institution",
+      "description": "What is the name of the candidate's college or university?"
+    },
+    {
+      "question": "graduation_dates",
+      "description": "What are the dates or expected dates of graduation for the candidate?"
+    },
+    {
+      "question": "education_details",
+      "description": "What are the key details about the candidate's education?"
+    },
+    {
+      "question": "role",
+      "description": "What role or title did the candidate hold in their previous job?"
+    },
+    {
+      "question": "company",
+      "description": "What company did the candidate work at?"
+    },
+    {
+      "question": "experience_dates",
+      "description": "What are the dates of employment for the candidate's previous role?"
+    },
+    {
+      "question": "experience_details",
+      "description": "List the responsibilities and accomplishments from the candidate's past job experience."
+    },
+    {
+      "question": "project_title",
+      "description": "What is the title of a project the candidate has worked on?"
+    },
+    {
+      "question": "project_dates",
+      "description": "What are the dates associated with this project?"
+    },
+    {
+      "question": "project_details",
+      "description": "List the details or description of the candidate's project work."
+    },
+    {
+      "question": "skills",
+      "description": "List all the technical and non-technical skills mentioned in the resume. Return it in a List of comma seperated values."
+    },
+    {
+      "question": "achievements",
+      "description": "List the notable achievements or awards received by the candidate."
+    },
+    {
+      "question": "certifications",
+      "description": "List the certifications mentioned by the candidate."
+    },
+    {
+      "question": "languages",
+      "description": "What languages does the candidate know?"
+    },
+    {
+      "question": "ats_score",
+      "description":"Evaluate this resume based on how well it is optimized for Applicant Tracking Systems (ATS). Consider structure, use of keywords, formatting, clarity, and relevance. Give a score out of 100"
+    },
+    {
+      "question": "ai_feedback",
+      "description" : "Give me brief and constructive feedback to improve the resume to reach a better ATS score"
+    }
+  ]
+  
