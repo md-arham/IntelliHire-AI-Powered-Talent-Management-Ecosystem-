@@ -116,6 +116,3 @@ class UserRead(UserBase):
 - Gmail API credentials
 - SMS service credentials
 
-## 🔧 Installation
-
-### 1. Clone Repository
