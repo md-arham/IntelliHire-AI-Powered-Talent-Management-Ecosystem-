@@ -1,6 +1,5 @@
-
-# InternHire
-
+# IntelliHire-AI-Powered-Talent-Management-Ecosystem-
+AI-Powered Talent Management Ecosystem | LLaMA 3.1 + HuggingFace | 87% Job Matching Accuracy | Multi-tenant HR Automation Platform
 ---
 
 ## 🔧 Installation
@@ -71,10 +70,6 @@ class UserRead(UserBase):
 - CI/CD integration
 - Rate limiting
 - Role-based access control
-```
-=======
-# IntelliHire-AI-Powered-Talent-Management-Ecosystem-
-AI-Powered Talent Management Ecosystem | LLaMA 3.1 + HuggingFace | 87% Job Matching Accuracy | Multi-tenant HR Automation Platform
 
 
 # 🤖 IntelliHire: AI-Powered Talent Management Ecosystem
