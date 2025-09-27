@@ -124,4 +124,3 @@ AI-Powered Talent Management Ecosystem | LLaMA 3.1 + HuggingFace | 87% Job Match
 ## 🔧 Installation
 
 ### 1. Clone Repository
->>>>>>> ce7b8f22c10ac742dc54d0a96f6f42b92d632bd8
